@@ -31,13 +31,14 @@ public class HttpUtil {
 		//http://www.koubei.com/?spm=0.0.0.117.pR54PP&city=110100[0,1]
 		String url = "http://caipiao.163.com/award/gd11xuan5/20180907.html";
 		String content = httpGet(url);
-		String regex = "href=\"([\\S]*?)\"\\s*?class=\"nav_a\\s*?shanghu\"\\s*?target=\"_blank\">本地商户</a>";
-		Pattern pattern = Pattern.compile(regex,Pattern.CASE_INSENSITIVE);
-		Matcher matcher = pattern.matcher(content);
-		if(matcher.find()){
-			String target = matcher.group(1);
-			System.err.println("target="+target);
-		}
+		System.out.println(content);
+//		String regex = "href=\"([\\S]*?)\"\\s*?class=\"nav_a\\s*?shanghu\"\\s*?target=\"_blank\">本地商户</a>";
+//		Pattern pattern = Pattern.compile(regex,Pattern.CASE_INSENSITIVE);
+//		Matcher matcher = pattern.matcher(content);
+//		if(matcher.find()){
+//			String target = matcher.group(1);
+//			System.err.println("target="+target);
+//		}
 		
 	}
 	/**
@@ -52,9 +53,9 @@ public class HttpUtil {
 		try {
 			httpclient = new DefaultHttpClient();
 			/** 设置代理IP **/
-			HttpHost proxy = new HttpHost(ip, 8080);
-			httpclient.getParams().setParameter(ConnRoutePNames.DEFAULT_PROXY,
-					proxy);
+			//HttpHost proxy = new HttpHost(ip, 8080);
+			//httpclient.getParams().setParameter(ConnRoutePNames.DEFAULT_PROXY,
+			//		proxy);
 			HttpGet httpget = new HttpGet(url);
  
 			httpget.getParams().setParameter(CoreConnectionPNames.SO_TIMEOUT,
